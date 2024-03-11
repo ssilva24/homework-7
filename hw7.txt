@@ -1,0 +1,38 @@
+CISC 3300 Homework 7: PHP Intro
+
+2. What are some examples of how PHP and JavaScript are alike and how they differ?
+    PHP: HyperText Processor, an interpreted programming language used to build webpages
+        it is an interpreted JavaScript
+        it is alike to JavaScript because they both are interpreted line by line
+        both PHP and JavaScript also have the same arithmetic operators,
+        both also have type guessing for variables
+
+        it differs from JavaScript because PHP is a bit stricter with semicolons at the end of statements
+        the PHP string concat is different than Js, the period symbol concats two strings : .=
+        a difference is that in PHP, function scope ois closed off and we dont pass any variables from parent scope
+        some other differences are that PHP doesnt execute within the browser but JS does
+        PHP supports databse while JS doesnt
+
+3. Define MVC, what are the responsibilities of each piece?
+    MVC is an architectural/design pattern that separates an application into three main logical components:
+        Model
+        View 
+        Controller 
+    Each architectural component is built to handle specific development aspects of an application
+    It isolates the business logic and presentation layer from each other
+
+    Controller
+        enables the interconnection between the views and model so it acts as an intermediator
+        doesnt worry about handling data logic, only tells model what to do 
+        processes all the business logic and incoming requests, manipulates data using Model component and interacts with view to render final output
+
+    View    
+        used for all the UI logic of the application
+        generates a user interface for the user
+        created by the data which is collected by the model component but these data arent tasken directly but through the controller 
+        only interacts with the controller
+     Model  
+        corresponds to all the data-related logic that the user works with
+        represents either data that is being transferred between the view and controller components, or any other business logic data
+        adds or retrieves data from database, responds to controller's request, interacts with database and gives required data back to controller
+
