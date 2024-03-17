@@ -22,12 +22,27 @@ switch( $url )
 {
     case "/posts":
         $postController = new PostController();
-        $posts = $postController->index();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            $postController->savePosts();
+        }
+        else
+        {
+            $posts = $postController-> index();
+        }
         break;
+
     case "/":
         $mainController = new MainController();
         $mainController->homepage();
         break;
+    //new case
+    case "/save-post":
+        if($_SERVER["REQUEST_METHOD"] == "POST")
+        {
+            $postController = new PostController();
+            $posts = $postController->savePosts();
+        }
     default:
         $mainController = new MainController();
         $mainController->notFound();
