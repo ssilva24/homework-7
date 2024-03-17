@@ -1,0 +1,40 @@
+1. What does it mean to escape data? How does escaping data help us avoid malicious
+code?
+    - Escaping data is meant to make sure that nothing is malicious
+    - it preserves data as it enters another context. it secures output data by stripping out unwanted data
+    - the first step to escape input is to escape output, to not allow hackers to send us malicious code 
+    - escaping data involves removing and replacing any characters that should not appear in a value
+    - an example of the risks of not escaping data are xss attacks
+2. Please read through: https://www.codecademy.com/article/what-is-rest
+    a. What is REST? What is meant by Statelessness?
+        REST, which stands for Representational State Transfer, is an architectural style that provides a standard
+        between computer systems on the web which makes it easier for the systems to communicate.
+
+        Statelessness means that the server does not need to know anything about the state that the client is in, and viceversa.
+        That way both the server and the client underatand any message that is recieved without seeing the previous messages
+    b. What is a resource?
+        A resource is the nouns of the web, because they describe any object and document or anything that can be needed to store or 
+        send to other services 
+    c. Look at the section on Path design: In a RESTful architecture paradigm what
+    would be the proper way to create a path for: (provide URL and HTTP method):
+        i. getting a list of users?
+            url: '/users'
+            http method: GET
+        ii. getting a particular user?
+            url: '/users/{userId}'
+            HTTP method: GET
+        iii. saving a user?
+            url: '/users'
+            http method: POST
+
+3. What is a Cookie?
+    -they are small text files used to store user information on the user's device
+    -they ask permission to save a bit of data on their browser to keep track of you
+    -with that cookie, it is allowed to make more requests. it is a way the server knows that it is you
+    and that the browser session has been authenticated
+    - these cookies expire after a specificed time
+4. What is a Session?
+    -they are used to store the user information on the user's server side
+    -this ends when the user closes the browser
+    -your session doing something on the page
+    -they are on the back end, and store information about a user and their preferences
