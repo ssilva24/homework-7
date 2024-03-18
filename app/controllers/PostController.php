@@ -15,11 +15,11 @@ class PostController extends Controller
     protected $twig;        
     public function index()
     {
-        $posts = Post::all();
-        $template = $this->twig->load('main/posts.twig');
-        echo $template->render(['Posts' => $posts]);
+        // $posts = Post::all();
+        // $template = $this->twig->load('main/posts.twig');
+        // echo $template->render(['Posts' => $posts]);
 
-        return $posts;
+        // return $posts;
     }
     public function createForm()
     {
@@ -28,25 +28,6 @@ class PostController extends Controller
     }
     public function savePosts()
     {
-        if(isset($_POST['data']))
-        {
-            $data =$_POST['data'];
-        }
-        else
-        {
-            $data = '';
-        }
-
-        if(isset($_POST['details']))
-        {
-            $details = $_POST['details'];
-        }
-        else
-        {
-            $details = '';
-        }
-
-        echo "post data has been recieved: Name = $data, Description = $details";
 
         if(isset($_POST['data']) && isset($_POST['details']))
         {
@@ -59,20 +40,22 @@ class PostController extends Controller
                 $post -> setName($data);
                 $post->setDetails($details);
 
-                header('Location: /posts?success=1');
+                echo json_encode(['success' => true, 'message' => 'Post has been created']);
                 exit;
             }
 
             else
             {
                 http_response_code(400);
-                echo "Error! please provide a name and description";
+                echo json_encode(['error' => 'Provide Name and description']);
+                exit;
             }
         }
         else
         {
             http_response_code(400);
-            echo "Error no data for Post";
+            echo json_encode(['error' => 'Data for post is missing']);
+            exit;
         }
 
 
