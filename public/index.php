@@ -6,6 +6,7 @@ require_once "../app/models/Post.php";
 require_once "../app/controllers/MainController.php";
 require_once "../app/controllers/UserController.php";
 require_once "../app/controllers/PostController.php";
+require_once "../public/assets/main/postForm.html";
 use app\controllers\MainController;
 use app\controllers\UserController;
 use app\controllers\PostController;
@@ -31,7 +32,10 @@ switch( $url )
             $posts = $postController-> index();
         }
         break;
-
+    case "/create-post-form":
+        $postController = new PostController();
+        $postController->createForm();
+        break;
     case "/":
         $mainController = new MainController();
         $mainController->homepage();
@@ -43,6 +47,7 @@ switch( $url )
             $postController = new PostController();
             $posts = $postController->savePosts();
         }
+        break;
     default:
         $mainController = new MainController();
         $mainController->notFound();
