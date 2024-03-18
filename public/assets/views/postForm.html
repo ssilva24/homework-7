@@ -6,14 +6,35 @@
 </head>
 <body>
     <h2>Send New Post</h2>
-    <form action="/save-post" method="POST">
-
-        <label for="data">Post:</label>
-        <input type="text" id="data" name="data"><br>
+    <form id="postForm" action="/save-post" method="POST">
+        <label for="data">Post Name:</label>
+        <input type="text" id="data" name="data" required><br>
         <label for="details">Post Details:</label>
-        <textarea id="details" name="details"></textarea><br>
-        <input type="submit" value="submit">
-    
+        <textarea id="details" name="details" required></textarea><br>
+        <input type="submit" value="Submit">
     </form>
+    <div id="message"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#postForm').submit(function (e) {
+                e.preventDefault();
+                var formData = $(this).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: $(this).attr('action'),
+                    data: formData,
+                    dataType: "json",
+                    success: function (response) {
+                        $('#message').html('<p style="color: green;">' + response.message + '</p>');
+                    },
+                    error: function (error) {
+                        $('#message').html('<p style="color: red;">' + error.responseJSON.error + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
