@@ -6,7 +6,7 @@ require_once "../app/models/Post.php";
 require_once "../app/controllers/MainController.php";
 require_once "../app/controllers/UserController.php";
 require_once "../app/controllers/PostController.php";
-require_once "../public/assets/main/postForm.html";
+// require_once "../public/assets/main/postForm.html";
 use app\controllers\MainController;
 use app\controllers\UserController;
 use app\controllers\PostController;
