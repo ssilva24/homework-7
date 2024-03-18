@@ -10,12 +10,13 @@ class MainController extends Controller
 
     public function homepage()
     {
-        $template = $this->twig->load('main/homepage.twig');
-        $homepageData = [
-            'title' => 'Homepage Title',
-        ];
+        include './assets/views/main/postForm.html';
+        // $template = $this->twig->load('main/homepage.twig');
+        // $homepageData = [
+        //     'title' => 'Homepage Title',
+        // ];
 
-        echo $template->render($homepageData);
+        // echo $template->render($homepageData);
     }
 
     public function notFound() {
@@ -31,5 +32,7 @@ class MainController extends Controller
         echo $template->render($errordata);
 
     }
+
+}
 
 }
