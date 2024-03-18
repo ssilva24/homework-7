@@ -21,7 +21,11 @@ class PostController extends Controller
 
         return $posts;
     }
-
+    public function createForm()
+    {
+        include '../public/assets/main/postForm.html';
+        exit();
+    }
     public function savePosts()
     {
         if(isset($_POST['data']))
